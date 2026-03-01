@@ -1,13 +1,19 @@
 main:
 
+  - title: "Benchmarking Muon Versus Adam Optimizer"
+    authors: <strong>Tushar Deshpande</strong>
+    conference_short:
+    pdf: https://github.com/tsd10/Muon_Vs_Adam/blob/main/Optimization_Muon_Vs_AdamW_Benchmarking.pdf
+    image: ./assets/img/3d_optimizer-thumbnail_webp-600x300.png
+
+
   - title: Fetch Benchmarking with DreamerV3 and SAC
     authors: <strong>Tushar Deshpande</strong>
     conference_short:
-    conference: ABC, 2025.
+    conference: 
     pdf: https://github.com/tsd10/Fetch--Dreamer-Vs-SAC/blob/main/DRL_Final_Project_SAC_Dreamer_Fetchv3_tushard.pdf
     code: https://github.com/tsd10/Fetch--Dreamer-Vs-SAC/tree/main
     image: ./assets/img/Fetch paper snippet.png
-    notes: Early Accept
 
   - title: "Image Coloration using Deep Learning models "
     authors: <strong>Tushar Deshpande</strong>
