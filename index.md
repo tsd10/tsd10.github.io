@@ -13,6 +13,10 @@ I enjoy building intelligent systems that combine research innovation with pract
 - **Reinforcement Learning:** Model Free/Model Based Algorithms, Exploration-Exploitation, Robotics
 - **Deep Learning:** Multi-Model Deep Learning, Small Language Models, Unsupervised Learning (GANs, VAEs)
 
+## Projects
+
+- [AutoResearch Framework](/framework.html)
+
 ## News
 
 - **[May. 2025]** Our paper about Fetch benchmarking using DreamerV3 and SAC is out.
