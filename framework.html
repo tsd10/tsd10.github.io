@@ -33,22 +33,46 @@ body {
   font-size: 1.2rem;
 }
 
+/* SVG Chart Interactivity */
+.interactive-svg {
+  width: 100%;
+  max-width: 1100px;
+  height: auto;
+  margin: 40px auto;
+  display: block;
+}
+
+.svg-clickable-node {
+  cursor: pointer;
+  transition: transform 0.25s ease, filter 0.25s ease;
+}
+
+.svg-clickable-node:hover {
+  filter: brightness(1.2) drop-shadow(0px 0px 8px rgba(0, 198, 255, 0.6));
+}
+
+.svg-clickable-node.active rect {
+  stroke: #7f5af0 !important;
+  stroke-width: 3px !important;
+  filter: drop-shadow(0px 0px 12px rgba(127, 90, 240, 0.7));
+}
+
 .pipeline-container {
   display: flex;
   gap: 20px;
   justify-content: center;
   flex-wrap: wrap;
-  margin: 50px 0;
+  margin: 30px 0;
 }
 
 .pipeline-node {
   width: 180px;
-  min-height: 120px;
+  min-height: 60px;
   background: rgba(255,255,255,0.06);
   backdrop-filter: blur(12px);
   border: 1px solid rgba(255,255,255,0.08);
-  border-radius: 18px;
-  padding: 20px;
+  border-radius: 12px;
+  padding: 10px;
   cursor: pointer;
   transition: all 0.35s ease;
   display: flex;
@@ -59,7 +83,7 @@ body {
 }
 
 .pipeline-node:hover {
-  transform: translateY(-10px) scale(1.03);
+  transform: translateY(-5px) scale(1.03);
   border-color: #00c6ff;
   box-shadow: 0 0 20px rgba(0,198,255,0.35);
 }
@@ -86,18 +110,6 @@ body {
   display: block;
 }
 
-.diagram {
-  text-align: center;
-  margin: 40px 0;
-}
-
-.diagram img {
-  width: 100%;
-  max-width: 1100px;
-  border-radius: 20px;
-  box-shadow: 0 0 30px rgba(0,0,0,0.5);
-}
-
 @keyframes fadeIn {
   from {opacity: 0; transform: translateY(20px);}
   to {opacity: 1; transform: translateY(0);}
@@ -111,17 +123,85 @@ body {
   <p>End-to-End AI Pipeline for Data Curation, Training, RL, RAG and Agentic Reasoning</p>
 </div>
 
-<div class="diagram">
-  <img src="/assets/img/autoresearch_pipeline.png">
-</div>
+<svg class="interactive-svg" viewBox="0 0 1000 500" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1.5 L 7 5 L 0 8.5 z" fill="#e5e7eb" />
+    </marker>
+  </defs>
+
+  <rect x="20" y="210" width="780" height="250" rx="8" fill="none" stroke="#e5e7eb" stroke-width="2" stroke-dasharray="5,5" />
+
+  <path d="M 370 110 L 370 140" stroke="#e5e7eb" stroke-width="2" marker-end="url(#arrow)" />
+  <path d="M 370 200 L 370 220 L 150 220 L 150 250" stroke="#e5e7eb" stroke-width="2" marker-end="url(#arrow)" />
+  <path d="M 115 315 L 115 340 L 75 340 L 75 370" stroke="#e5e7eb" stroke-width="2" marker-end="url(#arrow)" />
+  <path d="M 155 315 L 155 340 L 215 340 L 215 370" stroke="#e5e7eb" stroke-width="2" marker-end="url(#arrow)" />
+  <path d="M 215 285 L 265 285" stroke="#e5e7eb" stroke-width="2" marker-end="url(#arrow)" />
+  <path d="M 385 285 L 435 285" stroke="#e5e7eb" stroke-width="2" marker-end="url(#arrow)" />
+  <path d="M 555 285 L 605 285" stroke="#e5e7eb" stroke-width="2" marker-end="url(#arrow)" />
+  <path d="M 725 285 L 815 285" stroke="#e5e7eb" stroke-width="2" marker-end="url(#arrow)" />
+  <path d="M 600 210 L 705 160" stroke="#e5e7eb" stroke-width="2" marker-end="url(#arrow)" />
+
+  <g transform="translate(300, 50)">
+    <rect width="140" height="60" rx="6" fill="#e27468" stroke="#b25349" stroke-width="1.5" />
+    <text x="70" y="35" fill="#ffffff" font-size="14" font-weight="600" text-anchor="middle">Main Program</text>
+  </g>
+  <g transform="translate(260, 140)">
+    <rect width="220" height="60" rx="16" fill="#6ba4dc" stroke="#487ba9" stroke-width="1.5" />
+    <text x="110" y="28" fill="#ffffff" font-size="13" font-weight="600" text-anchor="middle">Submits all details</text>
+    <text x="110" y="46" fill="#ffffff" font-size="13" font-weight="600" text-anchor="middle">according to their use</text>
+  </g>
+
+  <g id="svg-curation" class="svg-clickable-node" transform="translate(70, 255)" onclick="showContent('curation', this)">
+    <rect width="145" height="60" rx="12" fill="#89c28a" stroke="#5d985e" stroke-width="1.5" />
+    <text x="72.5" y="35" fill="#111827" font-size="14" font-weight="bold" text-anchor="middle">Data Curation</text>
+  </g>
+
+  <g id="svg-synthetic" class="svg-clickable-node" transform="translate(20, 370)" onclick="showContent('curation', this)">
+    <rect width="110" height="60" rx="2" fill="#9cd3db" stroke="#68a3ab" stroke-width="1.5" />
+    <text x="55" y="35" fill="#111827" font-size="12" font-weight="bold" text-anchor="middle">Synthetic Data kit</text>
+  </g>
+
+  <g id="svg-custom" class="svg-clickable-node" transform="translate(160, 370)" onclick="showContent('curation', this)">
+    <rect width="110" height="60" rx="2" fill="#f5cecb" stroke="#c49a97" stroke-width="1.5" />
+    <text x="55" y="35" fill="#111827" font-size="12" font-weight="bold" text-anchor="middle">Custom Loop</text>
+  </g>
+
+  <g id="svg-training" class="svg-clickable-node" transform="translate(265, 255)" onclick="showContent('training', this)">
+    <rect width="120" height="60" rx="12" fill="#db9dc2" stroke="#a76a8e" stroke-width="1.5" />
+    <text x="60" y="35" fill="#111827" font-size="14" font-weight="bold" text-anchor="middle">Model Training</text>
+  </g>
+
+  <g id="svg-evaluation" class="svg-clickable-node" transform="translate(435, 255)" onclick="showContent('evaluation', this)">
+    <rect width="120" height="60" rx="12" fill="#e27468" stroke="#b25349" stroke-width="1.5" />
+    <text x="60" y="30" fill="#ffffff" font-size="14" font-weight="bold" text-anchor="middle">Model</text>
+    <text x="60" y="48" fill="#ffffff" font-size="14" font-weight="bold" text-anchor="middle">Evaluation</text>
+  </g>
+
+  <g id="svg-rl" class="svg-clickable-node" transform="translate(605, 255)" onclick="showContent('rl', this)">
+    <rect width="120" height="60" rx="12" fill="#89c28a" stroke="#5d985e" stroke-width="1.5" />
+    <text x="60" y="35" fill="#111827" font-size="14" font-weight="bold" text-anchor="middle">Post Training RL</text>
+  </g>
+
+  <g id="svg-rag" class="svg-clickable-node" transform="translate(825, 255)" onclick="showContent('rag', this)">
+    <rect width="120" height="60" rx="12" fill="#db9dc2" stroke="#a76a8e" stroke-width="1.5" />
+    <text x="60" y="35" fill="#111827" font-size="14" font-weight="bold" text-anchor="middle">RAG</text>
+  </g>
+
+  <g id="svg-agentic" class="svg-clickable-node" transform="translate(710, 100)" onclick="showContent('agentic', this)">
+    <polygon points="20,0 140,0 120,60 0,60" fill="#d1d5db" stroke="#9ca3af" stroke-width="1.5" />
+    <text x="70" y="35" fill="#111827" font-size="13" font-weight="bold" text-anchor="middle">Agentic Loop</text>
+    <text x="180" y="35" fill="#ffffff" font-size="14" font-weight="600" text-anchor="start">AutoResearch Style</text>
+  </g>
+</svg>
 
 <div class="pipeline-container">
-  <div class="pipeline-node" onclick="showContent('curation', this)">Data Curation</div>
-  <div class="pipeline-node" onclick="showContent('training', this)">Model Training</div>
-  <div class="pipeline-node" onclick="showContent('evaluation', this)">Evaluation</div>
-  <div class="pipeline-node" onclick="showContent('rl', this)">Post Training RL</div>
-  <div class="pipeline-node" onclick="showContent('rag', this)">RAG</div>
-  <div class="pipeline-node" onclick="showContent('agentic', this)">Agentic Loop</div>
+  <div id="btn-curation" class="pipeline-node active" onclick="showContent('curation', document.getElementById('svg-curation'))">Data Curation</div>
+  <div id="btn-training" class="pipeline-node" onclick="showContent('training', document.getElementById('svg-training'))">Model Training</div>
+  <div id="btn-evaluation" class="pipeline-node" onclick="showContent('evaluation', document.getElementById('svg-evaluation'))">Evaluation</div>
+  <div id="btn-rl" class="pipeline-node" onclick="showContent('rl', document.getElementById('svg-rl'))">Post Training RL</div>
+  <div id="btn-rag" class="pipeline-node" onclick="showContent('rag', document.getElementById('svg-rag'))">RAG</div>
+  <div id="btn-agentic" class="pipeline-node" onclick="showContent('agentic', document.getElementById('svg-agentic'))">Agentic Loop</div>
 </div>
 
 <div class="section-content">
@@ -160,15 +240,42 @@ body {
 
 <script>
 function showContent(id, element) {
+  // Hide all content containers
   document.querySelectorAll('.content-box').forEach(box => {
     box.classList.remove('active');
   });
+  // Show active content block
+  document.getElementById(id).classList.add('active');
 
+  // Clear active flags across all graphical SVG elements
+  document.querySelectorAll('.svg-clickable-node').forEach(node => {
+    node.classList.remove('active');
+  });
+
+  // Clear active flags on row layout nodes below
   document.querySelectorAll('.pipeline-node').forEach(node => {
     node.classList.remove('active');
   });
 
-  document.getElementById(id).classList.add('active');
-  element.classList.add('active');
+  // Highlight selected target node inside the Chart or Row layout
+  if (element) {
+    // If we clicked inside the SVG, also highlight its corresponding button tracker
+    if (element.classList.contains('svg-clickable-node')) {
+      element.classList.add('active');
+      const alternateBtn = document.getElementById('btn-' + id);
+      if (alternateBtn) alternateBtn.classList.add('active');
+    } else {
+      // If we clicked the text node layout tracker, mirror it back to the SVG node highlight
+      element.classList.add('active');
+      const alternateSvg = document.getElementById('svg-' + id);
+      if (alternateSvg) alternateSvg.classList.add('active');
+    }
+  }
 }
+
+// Set initial active state highlights on window mount
+window.addEventListener('DOMContentLoaded', () => {
+  const initialSvgNode = document.getElementById('svg-curation');
+  if(initialSvgNode) initialSvgNode.classList.add('active');
+});
 </script>
