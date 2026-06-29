@@ -1,0 +1,174 @@
+---
+layout: default
+title: AutoResearch Framework
+---
+
+<style>
+body {
+  background: #0b1020;
+  color: #e5e7eb;
+  font-family: Inter, sans-serif;
+}
+
+.framework-page {
+  max-width: 1400px;
+  margin: auto;
+  padding: 30px;
+}
+
+.hero {
+  text-align: center;
+  padding: 50px 20px;
+}
+
+.hero h1 {
+  font-size: 3rem;
+  background: linear-gradient(90deg, #00c6ff, #7f5af0);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.hero p {
+  color: #94a3b8;
+  font-size: 1.2rem;
+}
+
+.pipeline-container {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin: 50px 0;
+}
+
+.pipeline-node {
+  width: 180px;
+  min-height: 120px;
+  background: rgba(255,255,255,0.06);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 18px;
+  padding: 20px;
+  cursor: pointer;
+  transition: all 0.35s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.4);
+}
+
+.pipeline-node:hover {
+  transform: translateY(-10px) scale(1.03);
+  border-color: #00c6ff;
+  box-shadow: 0 0 20px rgba(0,198,255,0.35);
+}
+
+.pipeline-node.active {
+  border-color: #7f5af0;
+  box-shadow: 0 0 30px rgba(127,90,240,0.45);
+}
+
+.section-content {
+  margin-top: 40px;
+}
+
+.content-box {
+  display: none;
+  background: rgba(255,255,255,0.05);
+  border-radius: 18px;
+  padding: 30px;
+  border: 1px solid rgba(255,255,255,0.08);
+  animation: fadeIn 0.4s ease-in-out;
+}
+
+.content-box.active {
+  display: block;
+}
+
+.diagram {
+  text-align: center;
+  margin: 40px 0;
+}
+
+.diagram img {
+  width: 100%;
+  max-width: 1100px;
+  border-radius: 20px;
+  box-shadow: 0 0 30px rgba(0,0,0,0.5);
+}
+
+@keyframes fadeIn {
+  from {opacity: 0; transform: translateY(20px);}
+  to {opacity: 1; transform: translateY(0);}
+}
+</style>
+
+<div class="framework-page">
+
+<div class="hero">
+  <h1>AutoResearch Framework</h1>
+  <p>End-to-End AI Pipeline for Data Curation, Training, RL, RAG and Agentic Reasoning</p>
+</div>
+
+<div class="diagram">
+  <img src="/assets/img/autoresearch_pipeline.png">
+</div>
+
+<div class="pipeline-container">
+  <div class="pipeline-node" onclick="showContent('curation', this)">Data Curation</div>
+  <div class="pipeline-node" onclick="showContent('training', this)">Model Training</div>
+  <div class="pipeline-node" onclick="showContent('evaluation', this)">Evaluation</div>
+  <div class="pipeline-node" onclick="showContent('rl', this)">Post Training RL</div>
+  <div class="pipeline-node" onclick="showContent('rag', this)">RAG</div>
+  <div class="pipeline-node" onclick="showContent('agentic', this)">Agentic Loop</div>
+</div>
+
+<div class="section-content">
+  <div id="curation" class="content-box active">
+    <h2>Data Curation</h2>
+    <p>Ingest PDFs, CSVs, TXT, knowledge graphs, and generate synthetic datasets using custom loops.</p>
+  </div>
+
+  <div id="training" class="content-box">
+    <h2>Model Training</h2>
+    <p>Fine-tuning foundation models using SFT, LoRA, QLoRA, and distributed GPU training.</p>
+  </div>
+
+  <div id="evaluation" class="content-box">
+    <h2>Model Evaluation</h2>
+    <p>Measure accuracy, hallucination, latency, throughput, and benchmark performance.</p>
+  </div>
+
+  <div id="rl" class="content-box">
+    <h2>Post Training RL</h2>
+    <p>Apply RLHF, DPO, GRPO and preference optimization to align model behavior.</p>
+  </div>
+
+  <div id="rag" class="content-box">
+    <h2>RAG</h2>
+    <p>Integrate vector stores, embeddings, retrieval pipelines, and external knowledge sources.</p>
+  </div>
+
+  <div id="agentic" class="content-box">
+    <h2>Agentic Loop</h2>
+    <p>Autonomous reasoning, planning, tool use, memory, and iterative execution.</p>
+  </div>
+</div>
+
+</div>
+
+<script>
+function showContent(id, element) {
+  document.querySelectorAll('.content-box').forEach(box => {
+    box.classList.remove('active');
+  });
+
+  document.querySelectorAll('.pipeline-node').forEach(node => {
+    node.classList.remove('active');
+  });
+
+  document.getElementById(id).classList.add('active');
+  element.classList.add('active');
+}
+</script>
