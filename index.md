@@ -1,5 +1,6 @@
 ---
 layout: homepage
+title: Framework
 ---
 
 ## About Me
