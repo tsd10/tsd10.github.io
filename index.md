@@ -15,7 +15,7 @@ I enjoy building intelligent systems that combine research innovation with pract
 
 ## Projects
 
-- [AutoResearch Framework] (framework.html)
+- [AutoResearch Framework](framework.html)
 
 ## News
 
