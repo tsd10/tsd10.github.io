@@ -595,3 +595,30 @@ footer {
   display:none;
   font-family: monospace;
 }
+
+/* ---- Larger overall font ---- */
+body {
+  font-size: 18px;        /* try 17-20px; most themes default to about 14-16px */
+  line-height: 1.6;
+}
+
+/* Make common text elements follow the body size */
+p, li, td, th, blockquote, dd, dt {
+  font-size: 1em;
+}
+
+h1 { font-size: 2.2em; }
+h2 { font-size: 1.7em; }
+h3 { font-size: 1.4em; }
+
+/* Small print (footer, publication venues, etc.) */
+small, footer, .footer {
+  font-size: 0.85em;
+}
+
+/* Bigger text wraps more in a fixed-width layout, so widen it a bit */
+@media (min-width: 961px) {
+  .wrapper {
+    width: 1000px;        /* adjust to taste */
+  }
+}
