@@ -3,34 +3,40 @@
 
 @import "minimal-light";
 
-// Avatar size (desktop)
-.avatar img {
-  width: 260px !important;   // change this number to taste
-  height: 260px !important;  // keep equal to width for a circle
-  object-fit: cover;
-  padding: 0 !important;     // theme adds 20px padding that eats into the size
-  border-radius: 50%;
+// ---- Avatar: fixed circle size + zoomed photo ----
+.image.avatar {
+  --avatar-size: 260px;       // circle size (unchanged)
   display: block;
+  width: var(--avatar-size);
+  height: var(--avatar-size);
   margin: 0 auto 20px;
+  border-radius: 50%;
+  overflow: hidden;           // clips the zoomed image to the circle
 }
 
-// Widen the left column so a bigger avatar fits (desktop only)
+.image.avatar img {
+  width: 100% !important;
+  height: 100% !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  display: block;
+  object-fit: cover;
+  border-radius: 0;
+  transform: scale(1.3);          // zoom: 1.0 = none, 1.3 = 30% closer
+  transform-origin: center 30%;   // zoom focus point (x y); lower y = toward the top/face
+}
+
+// Widen the left column so the avatar fits (desktop only)
 @media screen and (min-width: 961px) {
   header, footer { width: 290px; }
 }
 
 // Tablet
 @media screen and (max-width: 960px) {
-  .avatar img {
-    width: 200px !important;
-    height: 200px !important;
-  }
+  .image.avatar { --avatar-size: 200px; }
 }
 
 // Phone
 @media screen and (max-width: 480px) {
-  .avatar img {
-    width: 180px !important;
-    height: 180px !important;
-  }
+  .image.avatar { --avatar-size: 180px; }
 }
