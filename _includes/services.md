@@ -3,10 +3,10 @@
 <h4 style="margin:0 10px 0;">Hitachi, Ltd. — Forward Deployed Engineer (FDE)</h4>
 <p style="margin: 0 0 10px 10px;"><em>Aug 2026 – Present · Santa Clara, CA</em></p>
 <ul style="margin:0 0 15px 15px;">
-  <li>Built an enterprise AI governance platform tracking token usage, routing, guardrails, and cost across 3 regions and 12 projects for 500+ users.</li>
-  <li>Implemented vLLM Semantic Router and OIDC per-user tracking, cutting inference cost by 30% through routing to lower-cost models.</li>
+  <li>Built an enterprise AI governance platform tracking token usage, routing, guardrails, and cost.</li>
+  <li>Implemented vLLM Semantic Router and OIDC per-user tracking, cutting inference cost through routing to lower-cost models.</li>
   <li>Deployed React/FastAPI microservices on GCP Kubernetes with an autoscaling control plane.</li>
-  <li>Built an Investor Relations RAG app (GCS, GPU Docling, Weaviate hybrid search) that parses documents 5x faster than CPU parsing; delivered multiple Copilot Studio workflows and AI proofs of concept in photonics manufacturing and cybersecurity.</li>
+  <li>Built an Investor Relations RAG app (GCS, GPU Docling, Weaviate hybrid search) that parses documents 5x faster than CPU parsing; delivered Copilot Studio workflows and AI proofs of concept in photonics manufacturing and cybersecurity.</li>
 </ul>
 
 <h4 style="margin:0 10px 0;">Softbank Research Institute — AI Research Intern</h4>
