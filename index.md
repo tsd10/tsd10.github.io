@@ -5,7 +5,7 @@ title: Framework
 
 ## About Me
 
-I'm a lifelong student of computer engineering passionate about AI research. I focus on reinforcement learning, multimodal deep learning and non-linear optimization. 
+I'm a lifelong student of computer engineering passionate about AI research. I focus on reinforcement learning, multimodal deep learning and non-linear non-convex optimization. 
 My work spans from integrating AI models in varied business areas, finetuning AI models, building Agentic RAG applications and knowledge graphs while doing real-world benchmarking on them.
 I enjoy building intelligent systems at scale that combine research innovation with practical impact.
 
