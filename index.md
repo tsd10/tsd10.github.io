@@ -5,9 +5,9 @@ title: Framework
 
 ## About Me
 
-I'm a computer engineer and AI researcher passionate about reinforcement learning, natural language processing, and multimodal deep learning.
-My work spans robotic manipulation, factual QA systems using LLMs and knowledge graphs, and real-world benchmarking of AI models.
-I enjoy building intelligent systems that combine research innovation with practical impact.
+I'm a lifelong student of computer engineering passionate about AI research. I focus on reinforcement learning, multimodal deep learning and non-linear optimization. 
+My work spans from integrating AI models in varied business areas, finetuning AI models, building Agentic RAG applications and knowledge graphs while doing real-world benchmarking on them.
+I enjoy building intelligent systems at scale that combine research innovation with practical impact.
 
 ## Research Interests
 
